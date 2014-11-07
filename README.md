@@ -1,3 +1,6 @@
+VIEW/MATERIALIZED VIEW in MongoDB
+---
+
 This is just a flow of thoughts about how to reproduce the functionality of a SQL VIEW/MATERIALIZED VIEW on mongoDB.
 
 ---
