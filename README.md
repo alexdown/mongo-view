@@ -7,14 +7,14 @@ This is just a train of thoughts about how to reproduce the functionality of a S
 
 First, the setup.
 
-You need:
+You need **the following software**:
 - Mongo shell to run `bad.js` (the 1st example).
   You start a single instance (no rs) using `mongod --dbpath <YOUR_DATA_PATH> --smallfiles`
 - Node.js, mongodb, mongo-oplog to run `bad3.js` (the 3rd example).
   You start a replica set (can be even just a single member) using `mongod --dbpath <YOUR_DATA_PATH> --smallfiles --replSet "rstest"`
 - If you're curious about what happened to `bad2.js`... I'll tell you if you help me making oplog tailing work in the mongo shell ;)
 
-The data model is:
+The **data model** is:
 - One db `test1` with one collection `sales`.
   You can add elements in it by:
 ```json
@@ -29,11 +29,13 @@ The data model is:
 
 --
 
-The "presentation" (such a pretentious word) goes like that:
+The **"presentation"** (such a pretentious word) goes like that:
 
-1. aggregation framework
+1. Although mostly used to store and retrieve data via CRUD operations, MongoDB have an [aggregation framework](http://docs.mongodb.org/manual/core/aggregation-pipeline/) that allows to write more complex queries (e.g. group, sum, etc).
 
-- how to create views
+I can then use this aggregation framework to write queries that aggregate and reports on data.
+
+2. how to create views
   ...jira :(
 
 - $out
