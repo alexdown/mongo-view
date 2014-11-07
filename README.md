@@ -35,7 +35,7 @@ I can then use this aggregation framework to write queries that aggregate and re
 
 3. As of 2.6, I can use [`$out`](http://docs.mongodb.org/manual/reference/operator/aggregation/out/) to output the result of an aggregation query to a new collection. This is great but not optimal, for instance because the new collection is a completely new collection that takes spaces for both data and index storage, ... (more a _MATERIALIZED VIEW_ than a _VIEW_)
 
-4. Anyway, the `$out` it's better than nothing. However, we can't tell mongodb to _continuously update the target collection_, and we can't even _schedule_ the aggregation query to run periodically to update the `$out` target collection. We need to do it from outside mongoDB.
+4. Anyway, the `$out` it's better than nothing. However, we can't tell mongodb to _continuously update the target collection_, and [we can't even _schedule_ the aggregation query to run periodically](https://jira.mongodb.org/browse/SERVER-2573) to update the `$out` target collection. We need to do it from outside mongoDB.
 
 5. First thing that pops to mind is wrap the query into a `setTimeout` and execute it via mongo shell. Something like:
 ```javascript
@@ -56,3 +56,5 @@ setTimeout(function(){
 10. This looks good. So much like [TRIGGERS](http://www.postgresql.org/docs/9.3/static/sql-createtrigger.html). But is it? The answer is no, as it's still external to the db, and most important because the _update_ "trigger" don't have access to the old value of the updated document... :(
 
 11. Please please please MongoDB: implement native VIEWs!!!
+
+Bedtime reading, if you like the topic: http://docs.mongodb.org/manual/reference/sql-comparison/
