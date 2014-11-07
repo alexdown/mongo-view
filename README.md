@@ -1,11 +1,9 @@
-VIEW/MATERIALIZED VIEW in MongoDB
----
+# VIEW/MATERIALIZED VIEW in MongoDB
 
 This is just a train of thoughts about how to reproduce the functionality of a SQL VIEW/MATERIALIZED VIEW on mongoDB.
 
---
 
-First, the setup.
+## Setup
 
 You need **the following software**:
 - Mongo shell to run `bad.js` (the 1st example).
@@ -27,8 +25,7 @@ The **data model** is:
 - `bad2.js` uses aggregation framework `$out` to create the collection `monthlySalesReport`
 - same is done by `bad3.js` on every new insert into the `sales` collection (sort of a "trigger")
 
---
-
+## Presentation
 The **"presentation"** (such a pretentious word) goes like that:
 
 1. Although mostly used to store and retrieve data via CRUD operations, MongoDB have an [aggregation framework](http://docs.mongodb.org/manual/core/aggregation-pipeline/) that allows to write more complex queries (e.g. group, sum, etc).
