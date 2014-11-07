@@ -17,12 +17,12 @@ You need:
 The data model is:
 - One db `test1` with one collection `sales`.
   You can add elements in it by:
-
+```json
     {
         "desc" : "fourth sale in october",
         "date" : ISODate("2014-10-14T23:00:00.000Z")
     }
-
+```
   change the description and the date as you wish (as the aggregation is grouping by month, you need several entries on different months)
 - `bad2.js` uses aggregation framework `$out` to create the collection `monthlySalesReport`
 - same is done by `bad3.js` on every new insert into the `sales` collection (sort of a "trigger")
