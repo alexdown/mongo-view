@@ -1,9 +1,9 @@
 VIEW/MATERIALIZED VIEW in MongoDB
 ---
 
-This is just a flow of thoughts about how to reproduce the functionality of a SQL VIEW/MATERIALIZED VIEW on mongoDB.
+This is just a train of thoughts about how to reproduce the functionality of a SQL VIEW/MATERIALIZED VIEW on mongoDB.
 
----
+--
 
 First, the setup.
 
@@ -25,7 +25,7 @@ The data model is:
 - `bad2.js` uses aggregation framework `$out` to create the collection `monthlySalesReport`
 - same is done by `bad3.js` on every new insert into the `sales` collection
 
----
+--
 
 The "presentation" (such a pretentious word) goes like that:
 
