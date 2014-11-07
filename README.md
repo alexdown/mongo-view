@@ -38,11 +38,11 @@ I can then use this aggregation framework to write queries that aggregate and re
 4. Anyway, the `$out` it's better than nothing. However, we can't tell mongodb to _continuously update the target collection_, and [we can't even _schedule_ the aggregation query to run periodically](https://jira.mongodb.org/browse/SERVER-2573) to update the `$out` target collection. We need to do it from outside mongoDB.
 
 5. First thing that pops to mind is wrap the query into a `setTimeout` and execute it via mongo shell. Something like:
-```javascript
-setTimeout(function(){
-    // run the aggregation framework query here
-}, 5000);
-```
+  ```javascript
+  setTimeout(function(){
+      // run the aggregation framework query here
+  }, 5000);
+  ```
   to invoke via mongo shell `mongo <FILENAME>.js`. Too bad, no window.setTimeout() :(
 
 6. Quick&dirty solution is what you see in `bad.js` (that's why it's called "bad" in the first place: a `while(true)`. If you launch `mongo bad.js` on a mongo instance with `test1` db and the `sales` collection, you'll find a new `monthlySalesReport` collection with the aggregated data. so far so good.
