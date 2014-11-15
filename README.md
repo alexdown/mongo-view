@@ -63,16 +63,17 @@ Bedtime reading, if you like the topic: http://docs.mongodb.org/manual/reference
 
 As a reference, the SQL equivalent of the data model above is (PostgreSQL):
 - **`sales` table**: 
-  CREATE TABLE sales ( date date, "desc" character varying)
+    CREATE TABLE sales ( date date, "desc" character varying)
 
 - **`sales` table entries**:
-  INSERT INTO sales VALUES ('2014-09-03', 'another sale')
+    INSERT INTO sales VALUES ('2014-09-03', 'another sale')
 
 - **`monthlySalesReport` query/view** (to create the view, prefix the query with `CREATE VIEW AS`):
+```
   SELECT 
     concat(date_part('year', date), '-', date_part('month', date)) as id,
     count(*)
   FROM
     sales
   GROUP BY id
-
+```
