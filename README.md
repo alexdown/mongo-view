@@ -63,6 +63,7 @@ Bedtime reading, if you like the topic: http://docs.mongodb.org/manual/reference
 
 As a reference, the SQL equivalent of the data model above is (PostgreSQL):
 - **`sales` table**: 
+
     CREATE TABLE sales ( date date, "desc" character varying)
 
 - **`sales` table entries**:
