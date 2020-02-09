@@ -2,6 +2,9 @@
 
 This is just a train of thoughts about how to reproduce the functionality of a SQL VIEW/MATERIALIZED VIEW in mongoDB.
 
+## NOTE
+
+:warning: As of 2016, [MongoDB implemented Views as a feature](https://jira.mongodb.org/browse/SERVER-142), so hacks like the one described in this repo are no longer needed. It was fun, thought! :laughing:
 
 ## Setup
 
